@@ -1,0 +1,19 @@
+\chapter{Covariant Derivative and Connection}
+\label{apx:covariant}
+{\color{purple}\titlerule[2.5pt]}
+\vspace{4pc}%
+
+To move accross consecutive tangential spaces to the manifold $\mathbb{M}$, it is useful to define the covariant derivative $\nabla$ in order to "connect" the geometries between space-like events. In the dual base $\partial / \partial x^i e^i$, the components of the Levi-Civita connection  are
+%The Leci-Civita connection $\Gamma$ is a rank 3 tensor that embeds the covariant derivative (\textit{ie} the gradient) of the metric along infinitesially close tangential spaces. Its components in the dual basis $\partial / \partial x^i e^i$ are
+\begin{equation}
+\Gamma_{ijk} = \left[ jk, i \right] = \left[ kj, i \right] = \frac{1}{2} \left( \partial_k g_{ij} + \partial_j g_{ik} - \partial_i g_{jk} \right)
+\end{equation}
+The above connection in $\mathbb{M}$ is symmetric with respect to its second and third indices and so it defines a tensor. Its components appear in those of the covariant derivative of vector $\vec{w}$:
+\begin{equation}
+\label{eq:covariant}
+\frac{d w^i}{d x^j} = \frac{\partial w^i}{\partial x^j} + \sum_{k=1}^{3} \Gamma^{i}_{kj} w^k
+\end{equation} where
+\begin{equation}
+\Gamma_{ijk} = \sum_{\ell=1}^{3} ~g_{i\ell}~\Gamma^{\ell}_{jk}
+\end{equation} \\
+

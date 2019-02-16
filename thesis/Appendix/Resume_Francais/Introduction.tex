@@ -1,0 +1,26 @@
+\chapter{Résumé Substantiel}
+\label{apx:res_fr}
+{\color{purple}\titlerule[2.5pt]}
+\vspace{4pc}%
+
+\section{Introduction: spectre de puissance Ly-$\alpha$}
+
+Les quasars sont les sources de rayonnement electromagnétique les plus lumineuses de l'Univers. Ils sont également très lointain, certains ayant été détecté jusqu'à un décalage spectral vers le rouge (redshift) de $z \simeq 7$ \citep{Mortlock2011}, c'est-à-dire lorsque l'Univers était âgé de moins d'un milliard d'année. Ils éclairent le gaz ténu en avant-plan depuis leur source: le milieu intergalactique (MIG). L'Hydrogène neutre atomique (\textsc{Hi}) absorbe le rayonnement du quasar à la première transition de la série de Lyman, Ly-$\alpha$ $\lambda 1216$, excitant l'électron de son niveau fondamental ($n=1$) à l'orbitale $n=2$, où $n$ est le premier nombre quantique. Les photons issus du quasar se propagent dans un Univers en expansion et leur longueur d'onde est diluée d'un facteur $\lambda = (1+z) \lambda_0$ par rapport à sa longueur d'onde dans son référentiel lors de l'emission. L'entièreté du spectre lumineux du quasar se retrouve décalé spectralement vers le rouge au courant de la propagation de la lumière. L'absorption Ly-$\alpha$ a, elle, lieu incessamment à la longeur d'onde $\lambda_{\textsc{Hi}} = 1216$ {\AA} dans le référentiel de l'absorbeur. Le spectre observé contient donc une série de raies d'absorptions entre les raies d'émission Ly-$\alpha$ $\lambda 1216$ et Ly-$\beta$ $\lambda 1026$, appelée la forêt Lyman-alpha du quasar. Le décalage spectral entre l'absorption et la raie d'émission renseigne sur la distance suivant la ligne-de-visée à laquelle se situe la surdensité d'Hydrogène neutre, et la profondeur de la raie d'absorption renseigne sur l'amplitude de la surdensité, puisque
+
+\begin{equation}
+\left\{
+\begin{array}{l}
+\varphi_\mathrm{obs} (\lambda) = e^{-\tau (\lambda)} \varphi_\mathrm{qso} (\lambda) \\
+\\
+\tau (v) = \displaystyle \int_{0}^{v} dv_\parallel~\cfrac{n_\textsc{Hi} \sigma_{\mathrm{Ly}\alpha} (z)}{\nabla v_\parallel}
+\end{array}
+\right.
+\end{equation}
+
+L'un des outils statistiques les plus pratique et utilisé pour confronter les prédictions aux observations est le spectre de puissance à une dimension du flux transmis dans la forêt Ly-$\alpha$ \citep{Croft1998, Croft1999}. Il est construit en évaluant la transformé de Fourier de la fraction de flux transmit normalisé à la fraction de flux moyen qui définit une profondeur optique effective $\langle x_\varphi \rangle = \varphi_\mathrm{obs} / \varphi_\mathrm{qso} = \exp \left[ - \tau_\mathrm{eff} \right]$:
+
+\begin{equation}
+\delta_\varphi \left( \lambda \right) = \frac{\varphi(\lambda)}{\langle x_\varphi \rangle} - 1 = \frac{e^{-\tau}}{e^{-\tau_\mathrm{eff}}} - 1
+\end{equation}
+
+Cette quantité est un traceur biaisé des fluctuations de la distribution de la matière dans le MIG. Une fois contrôlé pour les incertitudes et systématiques reliées à la mesure, le spectre de puissance de flux $P_\varphi$ sert à contraindre des paramètres cosmologiques et astrophysiques, y compris la masse des neutrinos.

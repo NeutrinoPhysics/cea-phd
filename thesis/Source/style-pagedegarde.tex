@@ -1,0 +1,89 @@
+%% Positionner le cadre dans la page.
+	%% Modifier yshift modifie la position des bords haut et bas du cadre. Modifier xshift modifie la position des bords gauche et droit du cadre. Il faut toujours les modifier deux par deux (ceux qui ont la même valeur ensemble).
+\begin{tikzpicture}[remember picture,overlay,color=blue!20!red!45!black!75!]
+	\draw[very thick]
+		([yshift=-160pt,xshift=45pt]current page.north west)--     
+		([yshift=-160pt,xshift=-25pt]current page.north east)--    
+		([yshift=35pt,xshift=-25pt]current page.south east)--      
+		([yshift=35pt,xshift=45pt]current page.south west)--cycle; 
+\end{tikzpicture}
+
+
+%% Position du NNT
+\begin{textblock}{13}(1.15,3.3)
+  NNT : \NNT
+\end{textblock}
+
+
+%% Logos en haut de la page
+%\begin{textblock}{1}(1.15,1)
+%\includegraphics[height=2.4cm]{logo/UPSac.png} %% Logo de Paris Saclay
+%\label{Logo Paris Saclay}
+%\end{textblock}
+
+\begin{textblock}{1}(1.15,1)
+\logoUNI
+\label{Logo Ecole Doctorale}
+\end{textblock}
+
+\begin{textblock}{1}(11,\vpos)
+\logoEt %% Logo de votre établissement
+\label{Logo Etablissement}
+\end{textblock}
+
+%\begin{center}
+%\includegraphics[height=2.5cm]{logo/PHENIICS.png}
+%\hfill
+%\includegraphics[height=2.5cm]{logo/logo_irfu.jpg}
+%\hfill
+%\end{center}
+    
+    
+\vspace{6cm}
+%% Texte
+\color{blue!20!red!45!black} %% Couleur violette du premier paragraphe
+  \begin{center}    
+    \Large\textsc{Th\`ese de doctorat\\ de l'Universit\'e Paris-Saclay} \\
+    \Large{\textsc{pr\'epar\'ee \`a l' \PhDworkingplace}} \\ \bigskip
+  \color{black} %% Couleur noir du reste du texte
+	\vfill
+	\large{\textbf{au sein du D\'epartement de Physique des Particules de l'IRFU, CEA Saclay}} \\
+	\vfill
+    \large{\'Ecole doctorale n$^{\circ}\ecodocnum$}: \normalsize{\ecodoctitle} \\
+	\vfill
+     \large{Sp\'ecialit\'e de doctorat: \PhDspeciality} %% Spécialité
+    \vfill  
+   \large{par}
+   \vfill
+   \LARGE{\textbf{\textsc{\PhDname}}} %% Nom du docteur
+    \vfill
+    \large{\textbf{\PhDTitleFR}} %% Titre de la thèse
+    \vfill
+    \bigskip
+\end{center}
+\color{black}
+%% Jury
+\begin{flushleft}
+Th\`ese pr\'esent\'ee et soutenue au \defenseplace, le \defensedate. \\
+\bigskip
+Composition du Jury :
+\end{flushleft}
+%% Members of the jury
+%% If needed, one can add jurymemberG or remove one jury member.
+
+\begin{center}
+\begin{tabular}{lll}
+
+    \textbf{\jurynameA}  & \jurygradeA & (\juryroleA) \\
+    \null & {\footnotesize \juryadressA }&\\   
+    \textbf{\jurynameB}  & \jurygradeB & (\juryroleB) \\
+    \null & {\footnotesize \juryadressB } &\\ 
+    \textbf{\jurynameC}  & \jurygradeC & (\juryroleC) \\
+    \null & {\footnotesize \juryadressC } &\\ 
+    \textbf{\jurynameD}  & \jurygradeD & (\juryroleD) \\
+    \null & {\footnotesize \juryadressD } &\\ 
+    \textbf{\jurynameE}  & \jurygradeE & (\juryroleE) \\
+    \null & {\footnotesize \juryadressE } &\\    
+ 
+  \end{tabular}    
+\end{center}

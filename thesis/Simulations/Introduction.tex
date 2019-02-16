@@ -1,0 +1,22 @@
+\vspace*{3pc}
+\begin{center}
+\begin{minipage}{0.7\linewidth}
+\hrule
+\vspace{8pt}
+{\huge\guillemotleft} ~The purpose of computation is insight, not numbers. {\huge\guillemotright}  \\
+\vspace{2pt}
+\begin{flushright}
+--- \textsc{Richard W. Hamming}
+\end{flushright}
+\vspace{8pt}
+\hrule
+\end{minipage}
+\end{center}
+\vspace{3pc}
+
+
+%\section*{Introduction}
+
+\begin{intro}
+{\color{purple}T}he Ly-$\alpha$ forest power spectrum is an insightful probe into the intergalactic neutral Hydrogen gas distribution, which is a tracer for the matter distribution. In Chap.~\ref{chap:structure}, I showed how non-cold dark matter particles would affect the matter distribution on scale $\lesssim 10^{1-2}~h^{-1}\mathrm{Mpc}$. However, the linear perturbations are insufficient to accurately quantify the evolution of the matter overdensities. To get the short-scale portion of the matter power spectrum, one must explicitely solve the N-body dynamics governed by the gravitational interaction. To this end, I describe the code in Sec.~\ref{sec:gadget}, as well as the generation of initial conditions to set up the positions and velocities of non-cold dark matter particles accurately. The code also solves the Vlasov or fluid equations to account for the hydrodynamics of the baryons in our simulation. These are used to simulate the distribution and thermodynamic state of the intergalactic medium, which is necessary to construct the observable for my work: the Ly-$\alpha$ power spectrum which I described in Chap.~\ref{chap:LyaForest}. In Sec.~\ref{sec:extract}, I describe the procedure that I use to construct the simulated Ly-$\alpha$ flux power spectrum from the computation of the effective optical depth. Finally, to constrain the mass of NCDM particles requires constructing the power spectrum with different cosmological and astrophysical parameters. I describe the methodology and the hydrodynamics simulations I ran in Sec.~\ref{sec:nuis}. All simulations were performed on the \textsf{Curie} supercluster, France's largest machine accessible to public research. I encountered many computational challenges along my research, and I had the privilege to follow special courses and training workshops given by the \textsf{TER@Tec} company\footnote{\url{http://www.teratec.eu/}}, which hosts the machine's operation and maintenance as well as their users' database and customer service. This is by far the field in which I developped the most skills druing my PhD, from intensive parallel computing and coding machine-specific scripts to debugging and statistical analysis of simulation outputs.
+\end{intro}

@@ -1,0 +1,296 @@
+\vspace*{1.5pc}
+
+In this section, I use the Fourier decomposition of small perturbations around mean fields. In the previous chapter, I related the warping of the spacetime curvature to the stress-energy tensor. The relevant quantities for the latter are the density, pressure, and temperature, which we expand into, according to Eqs.~\ref{eq:field} and~\ref{def:fourier}: \\
+\begin{equation}
+\left\{
+\begin{array}{l}
+\rho(\vec{x}, \tau) = \bar{\rho} (\tau) \left[ ~1~ + ~ \tilde{\delta}(\vec{k}, \tau) ~ \right] \\
+\\
+\mathcal{P}(\vec{x}, \tau) = \bar{\mathcal{P}} (\tau) \left[ ~1~ + ~ \tilde{\varpi}(\vec{k}, \tau) ~ \right] \\
+\\
+T(\vec{x}, \tau) = \bar{T} (\tau) \left[ ~1~ + ~ \tilde{\theta}(\vec{k}, \tau) ~ \right]
+\end{array}
+\right.
+\end{equation} \\ with $\vert \delta \vert, \vert \varpi \vert, \vert \theta \vert \ll 1$ and bulk velocity $u^\mu = (- ds^2)^{-1/2}~dx^\mu \ll 1$ is already an order 1 term since we consider the fluid to be quasi at rest in the comoving coordinates $x^\mu$. I strongly suggest the reader to skip all the way to the summary on page~\pageref{eq:summary_euler} unless he/she is interested in the derivation of linear order perturbations from first principles.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Metric Perturbations}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Decomposition}
+
+Perturbing the metric to first order means considering the following space-time metric:
+\begin{equation}
+\pmb{g} = \pmb{\bar{g}} + \pmb{h}
+\end{equation} where $\pmb{\bar{g}}$ is the metric describing the background, \textit{i.e.} the FRW metric defined in Eq.~\ref{eq:RWmetric}. In cartesian coordinates, its contravariant components are \\
+\begin{equation}
+\bar{g}_{\mu \nu} = a^2(t) \times \eta_{\mu \nu}
+\end{equation} \\ The perturbed metric $\pmb{h}$ is such that $\vert \vert h_{\mu \nu} \vert \vert \ll 1$. In its most general form, its contravariant components can be written as \\
+\begin{equation}
+\label{eq:metric_perturb}
+h_{\mu \nu} = a^2(t) \times 2~\left(
+\begin{array}{cc}
+	h_t & \vec{h}\\
+	\vec{h} & \pmb{h_s}
+\end{array}
+\right)
+\end{equation} \\ The $2$ comes from the development at first order (square term). The above expression features a scalar $h_t$ for the time component, spatial vectors $\vec{h}$ and a rank 2 symmetric spatial tensor $\pmb{h_s}$. Vectors can always be decomposed into a curl-free and a divergence-free component, so we may decompose the vector modes as a radial and a transverse term $\vec{h} = \vec{h}^{\parallel} + \vec{h}^{\bot}$ with
+\begin{equation}
+\left\{
+\begin{array}{l}
+\vec{\nabla} \times \vec{h}^{\parallel} = \vec{0}\\
+\\
+\vec{\nabla} \cdot \vec{h}^{\bot} = 0
+\end{array}
+\right.
+\end{equation} The first (curl-free) component only requires a single scalar to be determined (its direction). The second (divergence-free) component has two degrees of freedom since $\vec{h}^{\bot}$ can be expressed in any basis whose vectors are in the plane normal to $\vec{h}^{\parallel}$. A similar decomposition applies to the spatial tensor, which we expand into a radial, a transverse and a tensoral term $\pmb{h_s} = \pmb{h_s}^{\parallel} + \pmb{h_s}^{\bot} + \pmb{h_s}^T$, where
+\begin{equation}
+\left\{
+\begin{array}{ll}
+h^{\parallel}_{ij} = \left(\cfrac{\vec{\nabla}_i \vec{\nabla}_j }{3} ~g_{ij}~ \nabla^2 \right) h^{\parallel}_0 & \text{where}~h^{\parallel}_0 \in \mathbb{R} ~\text{is a scalar}\\
+\\
+h^{\bot}_{ij} = \vec{\nabla}_i h^{\bot}_j + \vec{\nabla}_j h^{\bot}_i & \text{where}~ h^{\bot}_i ~\text{are the components of a divergence-free spatial vector}
+\end{array}
+\right.
+\end{equation} Similar to the vector decomposition, the $\parallel$ and $\bot$ components of tensor $\pmb{h}$ gives an additional 1 scalar and 2 vector degrees of freedom. Because $\pmb{h}$ has to be traceless, this leaves only two independant degrees of freedom to define the tensoral part of $\pmb{h}^T$, which are typically denoted $h^{+}$ and $h^{\times}$ and correspond to the two polarization states of gravitational waves. This gives us a total of 9 degrees of freedom, in addition to a scalar degree of freedom $h_s$ to which we can multiply $\pmb{h_s}$ for a total of 10:
+\begin{equation*}
+h_t, ~h_s, ~\vec{h}^{\parallel},
+~\left(
+\begin{array}{c}
+\vec{h}^{\bot}_{+}\\
+\vec{h}^{\bot}_{\times}
+\end{array}
+\right), ~h^{\parallel}_0, 
+~\left(
+\begin{array}{c}
+h^{\bot}_{+}\\
+h^{\bot}_{\times}
+\end{array}
+\right), 
+~\left(
+\begin{array}{c}
+h^{T}_{+}\\
+h^{T}_{\times}
+\end{array}
+\right)
+\end{equation*}
+
+\subsubsection{Gauge Freedom}
+\label{sec:gauge}
+
+At the linear level, rotational modes decouple from the others. We can thus only consider the scalar degrees of freedom instead of the total 10: $h_t$, $h_s$, $\vec{h}^{\parallel}$ and $h^{\parallel}_0$. However, of those 4, only two are physical. The other two depend on our choice of coordinates. This is known as \textbf{gauge freedom}. In electromagnetism, the electric potential $V$ can be defined with any scalar offset $V + \xi$ since only the Laplacian (contravariant derivative) is a physical quantity (the electric charge density $\rho_e$) by virtue of the Poisson equation $\nabla^2 V = \rho_e / \epsilon_0 = \nabla^2 ( V + \xi )$. For analogous reasons, only 2 of the 4 scalars enumerated are physical quantities. The other two are mute since they depend on the choice of a coordinate system. Several gauges can be chosen. One that is conveniant for first order perturbations is setting $\vec{h}^{\parallel} = 0$ and $h^{\parallel}_0 = 0$, known as the \textbf{conformal Newtonian gauge}. Conformal because the time coordinate is conformal time and Newtonian because the two remaining scalar degrees of freedom correspond to the Newtonian gravitational potential (such that $\nabla^2 \psi = 4 \pi G \rho$). Because of this, it is conventional to set
+\begin{equation*}
+\begin{array}{rr}
+h_t \mapsto & \psi\\
+h_s \mapsto & -\phi
+\end{array}
+\end{equation*} so that the line element in this perturbed metric in this gauge can be written \\
+\begin{empheq}[box=\mymath]{equation}
+\label{eq:perturbed_metric}
+ds^2 = a^2(t) ~\left( -(1 + 2 \psi) ~d\tau^2 + (1 - 2 \phi ) ~\delta_{ij} dx^i dx^j \right)
+\end{empheq} \\ In this perturbed metric, the particle's individual 4-momentum is
+\begin{equation}
+\pmb{P} = \left[ ~(1+\psi) \epsilon, (1-\phi) \vec{q} ~ \right]
+\end{equation} with $\vec{q} = q \hat{q} = a \vec{p} = \vec{p}/T$ where $\vec{p}$ is the particle's \emph{proper} momentum as measured by an observer stationary in the comoving coordinate system and $\epsilon(q) = a E = E/T = \sqrt{a^2 m^2 + q^2}$. It is useful to use $\vec{q}$ and $\epsilon$ instead of $\vec{p}$ and $E$ since in absence of metric perturbations ($\phi = 0 = \psi$), these quantities are not redshifted.\\ 
+
+
+\subsubsection{Einstein Equations}
+
+We can use the perturbed metric in expression~\ref{eq:perturbed_metric} to compute the Riemann curvature tensor, its Ricci contraction and the trace, and link the subsequent Einstein tensor to the perturbed energy-stress tensor \\
+\begin{equation}
+\pmb{T} = \bar{\pmb{T}} ~\left[ 1 + \pmb{\Pi} \right] = (\rho + \mathcal{P}) \pmb{u} \otimes \pmb{u} + \mathcal{P}\pmb{g} + \pmb{\Sigma}
+\end{equation} \\ with $\pmb{\Sigma}$ the shear stress tensor and $\vert \vert \pmb{\Pi} \vert \vert \ll 1$, which we can also decompose into scalar, vector and tensor modes each evolving independantly of one another at linear order. Isolating the scalar modes only of $\pmb{\Pi}$ (left-hand terms of Eq.~\ref{sys:et}) and equating them with those of the Einstein tensor (right-hand terms of Eq.~\ref{sys:et}), one can show that \\
+\begin{equation}
+\label{sys:et}
+\left\{
+\begin{array}{lcl}
+4 \pi G a^2~ \bar{\rho} \tilde{\delta} &=& - k^2 \tilde{\phi} - 3 H \left( \dot{\tilde{\phi}} + H \tilde{\psi} \right)\\
+\\
+4 \pi G a^2~ \tilde{\varpi} &=& \ddot{\tilde{\phi}} + H \left( \dot{\tilde{\psi}} + 2 \dot{\tilde{\phi}} \right) + \left( 2 \dot{H} + H^2 \right) \tilde{\psi} + \cfrac{k^2}{3} \left( \tilde{\phi} - \tilde{\psi} \right) \\
+\\
+4 \pi G a^2~ \left( \bar{\rho} + \bar{\mathcal{P}} \right) \tilde{\vartheta} &=& \dot{\tilde{\phi}} + H \tilde{\psi}\\
+\\
+4 \pi G a^2~ \left( \bar{\rho} + \bar{\mathcal{P}} \right) \tilde{\sigma} &=& - \cfrac{k^2}{3} \left( \tilde{\phi} - \tilde{\psi} \right)\\
+\end{array}
+\right.
+\end{equation} \\ with $\tilde{\vartheta} = \vec{\nabla} \cdot \vec{v} = -i k^i \tilde{v}_i$ the divergence of the coordinate velocity $v_i = \dot{x_i}$ and \\
+\begin{equation}
+\left( \bar{\rho} + \bar{\mathcal{P}} \right) \tilde{\sigma} \doteq - \left( \cfrac{k_i}{k}\cfrac{k_j}{k} - \cfrac{\delta_{ij}}{3} \right) \tilde{\Sigma}^{ij}
+\end{equation} \\ the anisotropic stress. All dotted expressions are differentiated with respect to conformal time. Solving system~\ref{sys:et} requires linking the left-hand terms to the Boltzmann moments. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Perturbing the Boltzmann Equilibrium}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+To get the stress-energy tensor terms, we can take its general covariant expression in Eq.~\ref{eq:nrj_general}, this time the metric trace being $(-g)^{-1/2} = a^{-4} (1-\psi+3\phi)$ ($= a^{-4}$ in absence of perturbations). Using the comoving momentum and energy we defined in Sec.~\ref{sec:gauge}, we can identify using the quantities defined in expression~\ref{eq:moments} the perturbed energy density, flux and stress as being \\
+\begin{equation}
+\label{sys:perturb_stress_energy}
+\left\{
+\begin{array}{l}
+T^0_0 = -\cfrac{1}{a^4} \displaystyle \int \cfrac{d^3q}{(2\pi)^3}~ \epsilon~ f(\vec{x}, \vec{q}, \tau)\\
+\\
+T^0_i = \cfrac{1}{a^4} \displaystyle \int \cfrac{d^3q}{(2\pi)^3}~ q_i~ f(\vec{x}, \vec{q}, \tau)\\
+\\
+T^i_j = \cfrac{1}{a^4} \displaystyle \int \cfrac{d^3q}{(2\pi)^3}~ \cfrac{q^i q_j}{\epsilon}~ f(\vec{x}, \vec{q}, \tau)
+\end{array}
+\right.
+\end{equation} \\ The distribution function is tracked by the Boltzmann equation which we can rewrite with the comoving quantities: \\
+\begin{equation}
+\label{eq:boltzmann_reference}
+\left[ \partial_\tau + \left( \dot{\vec{x}} \vec{\nabla}_{\vec{x}} \right) + \left( \dot{\vec{q}} \vec{\nabla}_{\vec{q}} \right) \right]~f = \mathcal{C}[f]
+\end{equation}
+
+\subsubsection*{Boltzmann Hierarchy}
+
+We may decompose $f(\vec{x}, \vec{q}, \tau) = f_0(q) + \Phi(\vec{x}, \vec{q}, \tau)$ into an equilibrium distribution function $f_0 (q)$ given by Eq.~\ref{eq:fermibose} function of $q = \vert \vec{q} \vert$ only because of homogeneity and isotropy
+\begin{equation}
+\label{eq:dist_eq_0}
+f_0(q) = \frac{\beta}{e^{\alpha (q-\xi)} \pm 1}
+\end{equation} and an off-equilibrium perturbation in the distribution function $\Phi(\vec{x}, \vec{q}, \tau)$ such that $\vert \Phi/f_0 \vert \ll 1$. In Eq.~\ref{eq:dist_eq_0} above, $\xi = \mu / T_\nu$ is the comoving chemical potential of the generic particle of temperature\footnote{I use $T_\nu$ as the reference temperature since photons get reheated by $e^{\pm}$ pair annihilation, whereas neutrinos are approximately not} $T = \alpha T_\nu$ and $0 \leqslant \beta \leqslant 1$ is a factor accounting for particles which are not produced in thermal equilibrium, which is the case for sterile neutrinos. Expanding out the collisionless Boltzmann equation for non-interacting matter (dark matter, neutrinos), the linear order corrections follow
+\begin{equation}
+\label{eq:perturb_boltz}
+\frac{\partial \Phi}{\partial \tau} + \frac{q^i}{\epsilon}\frac{\partial \Phi}{\partial x^i} + \frac{d q}{d \tau} \frac{\partial f_0}{\partial q} = 0
+\end{equation} In Fourier space, with $\vec{q} = q \hat{q}$, $\vec{p} = p \hat{p}$, $\vec{k} = k \hat{k}$ and $\mu = \hat{q} \hat{k}$ the cosine of the angle between them (not the chemical potential !), 
+\begin{equation}
+\label{eq:perturb_boltz_fourier}
+\frac{\partial \tilde{\Phi}}{\partial \tau} + i \frac{qk\mu}{\epsilon} \tilde{\Phi} + \left[ q \dot{\tilde{\phi}} - i \epsilon k \mu \tilde{\psi} \right] \frac{\partial f_0}{\partial q} = 0
+\end{equation} where the energy gradient term comes from the geodesic equation using the 4-momentum (see Eq.~\ref{eq:geodesic_p}) $\partial_\tau P^\alpha = 1/m~ \Gamma^\alpha_{\mu \nu} p^\mu P^\nu$. For cold dark matter and neutrinos, one can deduce the density contrast $\tilde{\delta}$ and velocity divergence $\tilde{\vartheta} = i k^i \tilde{v}_i$ from Eq.~\ref{sys:perturb_stress_energy}:
+\begin{equation}
+\label{eq:boltmo}
+\left\{
+\begin{array}{l}
+\bar{n} \tilde{\delta} = \displaystyle \int \cfrac{d^3 q}{(2 \pi a)^3} ~\tilde{\Phi}\\
+\\
+\bar{n} \tilde{\vartheta} = \displaystyle \int \cfrac{d^3 q}{(2 \pi a)^3} ~ \cfrac{qk\mu}{\epsilon} ~\tilde{\Phi}
+\end{array}
+\right.
+\end{equation} with $\bar{n} = a^{-3}/2\pi~ \displaystyle\int d^3 q f_0$ the mean density. For non-relativistice matter, higher orders of $(q/\epsilon)^{n \geqslant 2}$ are all negligeable, and so only the zeroth and first moments of Eq.~\ref{eq:perturb_boltz_fourier} drive the perturbations for non-interacting non-relativistic matter: the continuity and Euler equations. Dropping the tilda symbols,  \\
+\begin{empheq}[box=\mymath]{equation}
+\left\{
+\begin{array}{l}
+\dot{\delta} + \vartheta - 3 \phi = 0\\
+\dot{\vartheta} + H \vartheta - k^2 \psi = 0
+\end{array}
+\right.
+\end{empheq} \\
+
+Since the $\vec{q}$ dependance of  $\tilde{\Phi}(k, q, \mu, \tau)$ is only function of its relative alignement with the mode vector, we can decompose it into Legendre series:
+\begin{equation}
+\tilde{\Phi} (k, \mu, q, \tau) = \sum_{n=0}^{\infty} (-i)^n (2n + 1) ~\Psi_n (k, q, \tau)~ \mathbb{P}_n (\mu)
+\end{equation} where the Legendre moments of $\Phi$ are
+\begin{equation}
+\label{def:lengendre_moment}
+\Psi_n (k, q, \tau) = \frac{1}{2 (-i)^n} \int_{-1}^{+1} d\mu~ \tilde{\Phi} (k, \mu, q, \tau)~\mathbb{P}_n (\mu)
+\end{equation} and 
+\begin{equation}
+\mathbb{P}_n(\mu) \doteq \frac{1}{2^n n \!} \frac{d^n}{d \mu^n} \left[ (\mu^2 - 1)^n  \right]
+\end{equation} are the Legendre polynomials of degree $n$. The energy density and pressure can both be expressed in terms of moments of the monopole $\Psi_0$, while the dipole $\Psi_1$ and quadrupole moments $\Psi_2$ give the velocity divergence and anisotropic stress respectively: \\
+\begin{equation}
+\label{sys:te}
+\left\{
+\begin{array}{l}
+\tilde{\delta \rho} = \cfrac{1}{a^4} \displaystyle \int \cfrac{d^3 q}{(2 \pi)^3}~ \epsilon \Psi_0\\
+\\
+\tilde{\delta \mathcal{P}} = \cfrac{1}{3 a^4} \displaystyle \int \cfrac{d^3 q}{(2 \pi)^3}~ \epsilon \left(\cfrac{q}{\epsilon} \right)^2 \Psi_0\\
+\\
+\left( \bar{\rho} + \bar{\mathcal{P}} \right) \tilde{\vartheta} = \cfrac{k}{a^4} \displaystyle \int \cfrac{d^3 q}{(2 \pi)^3}~ \epsilon \left(\cfrac{q}{\epsilon} \right) \Psi_1\\
+\\
+\left( \bar{\rho} + \bar{\mathcal{P}} \right) \tilde{\sigma} = \cfrac{2}{3 a^4} \displaystyle \int \cfrac{d^3 q}{(2 \pi)^3}~ \epsilon \left(\cfrac{q}{\epsilon} \right)^2 \Psi_2
+\end{array}
+\right.
+\end{equation} \\ which now closes the system in Eq.~\ref{sys:et}.\\
+
+Integrating Eq.~\ref{eq:perturb_boltz_fourier} as per the multipolar Legendre expansions of $\Phi$ yields the so-called \textbf{Boltzmann hierarchy}:
+\begin{empheq}[box=\mymath]{equation}
+\label{sys:hierarchy_boltz}
+\left\{
+\begin{array}{l}
+\dot{\Psi}_0 = - \cfrac{qk}{\epsilon} \Psi_1 - \dot{\phi} \cfrac{d f_0}{d \ln q} \\
+\\
+\dot{\Psi}_1 = \cfrac{qk}{3\epsilon} (\Psi_0 - 2 \Psi_2) - \cfrac{\epsilon k}{3 q} \psi \cfrac{d f_0}{d \ln q}\\
+\\
+\dot{\Psi}_{n \geqslant 2} = - \cfrac{qk}{(2n+1)\epsilon} \left[ n \Psi_{n-1} - (n+1) \Psi_{n+1} \right]
+\end{array}
+\right.
+%\end{equation}
+\end{empheq} A Boltzmann solver code like \texttt{CAMB}, truncating the Boltzmann hierarchy at $n \leqslant 6$ and using $\sim 10^3$ bins of comoving momentum is sufficient to compute the matter power spectrum with percent level accuracy.
+
+
+\subsection{Vlasov Equations}
+
+Linking Systems~\ref{sys:et} and \ref{sys:te} gave the 4 diagonal non-trivial equation equivalents of the Poisson equation, which simply translates the divergence-free nature of the Einstein tensor, the general relativity equivalent of the divergence-free nature of the gravitational field in the Newtonian limit. These may seem intimidating at first glance, but they simply exhibit how the density, pressure, velocity divergent and anisotropic stress are linked to the metric, and thereby to each other. For most species in the Universe, they can be simplified drastically. For non-relativistic matter, only the monopolar Legendre moment $\tilde{\Psi}_0$ from Eq.~\ref{def:lengendre_moment} is relevant, and thus there is neither velocity divergence nor anisotropic stress, as expected, and thus the fourth component in the \ref{sys:et} system shows that the two scalar potentials are equal $\phi = \psi$, which in turn drastically simplifies the first and second components, which in fact reduce to  the Fourier modes of the Possion equation perturbed at first order on $\phi$ and $\delta$ \\
+\begin{equation}
+\frac{k^2}{a^2} \tilde{\phi} = 4 \pi G a^2 \bar{\rho}~ \tilde{\delta}
+\end{equation} \\ and the second Friedmann equation at first order perturbations on $\mathcal{P}$ respectively; which by some trivial manipulation yields the Euler equation, assuming an equation of state similar to Eq.~\ref{eq:eos}, since $\varpi = w \delta$. This leaves us yearning for the continuity equation, which can simply be derived from the zeroth moment of the (collisionless) Boltzmann equation in expression~\ref{eq:boltzmann_reference} and identifying the moments defined in the~\ref{eq:boltmo} expressions:\\
+\begin{equation}
+\begin{array}{c}
+\displaystyle \int \cfrac{d^3 q}{(2 \pi)^3 a^4}~~~\left\{ \cfrac{\partial f}{\partial \tau} + \frac{q^i}{\epsilon}\cfrac{\partial x^i}{\partial x^i} + \dot{q} \cfrac{\partial f}{\partial q} = 0 \right\} \\
+\\
+\Rightarrow\\
+\\
+\dot{n} + \cfrac{-ik^i}{a} (n v_i) + 3 \left( H - \dot{\phi}\right) = 0 \\
+\end{array}
+\end{equation} \\ which yields $d_\tau (\bar{n} a^3) = 0$ for zero order perturbations (which is what we derived in Ch.~\ref{chap:cosmology} for the background evolution of non-relativistic matter $\bar{n} \propto \bar{\rho} \propto a^{-3}$) \\
+\begin{equation}
+\dot{\delta} + \vartheta + 3 \dot{\phi} = 0
+\end{equation} \\ These are only valid in the case of a non-interacting fluid. Baryons are coupled to photons up until the freeze-out of baryon acoustic oscillations, and so the collision term $\mathcal{C}[f_b, f_\gamma]$ must not be neglected. One could get the expression from particle physics, setting equilibrium between baryons and photons via Compton scattering, which leads to the blue term in Eq.~\ref{eq:summary_euler} where $\dot{\tau}_{\mathrm{Compton}}$ is the rate of Compton scattering (optical depth) and \\
+\begin{equation}
+\label{eq:tcl}
+\frac{1}{R} \doteq \frac{4 \rho_{\gamma, 0}}{3 \rho_{b, 0}}
+\end{equation} \\ and $\Theta_{0,1,2}$ the monopole, dipole and quadrupole Legendre moments for the photon temperature fluctuations $\theta$. \\
+
+Finally, taking the first moment of the Boltzmann equation and identifying the~\ref{eq:boltmo} expressions and neglecting all superior orders in $(q/\epsilon)^{n \geqslant 2}$ yields \\
+
+\begin{equation}
+\begin{array}{c}
+\displaystyle \int \cfrac{d^3 q}{(2 \pi)^3 a^4}~\cfrac{q\hat{q}^i}{\epsilon}~~~\left\{ \cfrac{d f}{d\tau} = 0 \right\} \\
+\\
+\Rightarrow \\
+\\
+\dot{\mathcal{J}} + 4 H \mathcal{J} + n~ik \psi = 0 \\
+\end{array}
+\end{equation} with $\mathcal{J}^i = n v^i$ the current. This equation has no zero-order part, whereas the first order perturbations for radiation ($\mathcal{J}_r = \rho_r$) yields
+
+\begin{equation}
+\dot{v}^j + H v^j + ik~\psi = 0
+\end{equation} which is Euler's linearly-perturbed equation for radiation.
+
+\subsection*{Summary}
+
+We've derived the fully linearly perturbed Einstein equation in the perturbed FRW metric in the conformal Newtonian gauge, which allowed us to isolate the evolution of the scalar modes independantly of the vector and tensor modes. Using the Boltzmann equation, we've linked the Einstein and stress-energy tensors with the set of 4 Einstein Field Equations~\ref{sys:et} and~\ref{sys:te}. We've also derived the continuity and Euler equations from the moments of the Boltzmann equation, just as one would do in classical statistical physics to get the Vlasov-Poisson system. For photons, massless neutrinos and any relativistic dark matter, this whole set of equations is necessary to solve the linear perturbations in $\theta_r$ and $\delta_r$.\\
+
+For non-relativistic matter, the equations simplify drastically and become identical to linearly perturbing the Vlasov-Poisson equations around density, bulk velocity, pressure and gravitational potential for a fluid at rest in the comoving coordinate system. In summary, denoting index $m$ for non-reltivistic matter and $r$ for massless radiation, and dropping the tilde, each linear Fourier mode evolves as: \\
+
+
+\begin{empheq}[box=\mymath]{equation}
+\label{eq:summary_euler}
+\left\{
+\begin{array}{lcl}
+\dot{\delta}_m + \vartheta_m &=& - 3 \dot{\phi}\\
+\\
+\dot{v}_m + H v_m &=& -ik \psi ~{\color{blue} + \cfrac{\dot{\tau}}{R} \left( 3 i ~\Theta_1 \right) }\\
+\\
+\dot{\theta}_r + ik \mu ~\theta_r &=& \dot{\phi} - ik \mu ~\psi ~{\color{blue} - \dot{\tau} \left( \Theta_0 - \theta + \mu v_b - \frac{1}{2} \mathbb{P}_2(\mu) \Pi \right)}
+\end{array}
+\right.
+%\end{equation} \\
+\end{empheq} \\
+
+where the blue term only applies for baryons and photons in the strong coupling limit, and taking the Einstein equations with no anisotropic stress \\
+
+\begin{empheq}[box=\mymath]{equation}
+\label{eq:summary_poisson}
+\left\{
+\begin{array}{lcl}
+k^2 \phi + 3H \left( \dot{\phi} - H \psi \right) &=& 4 \pi G a^2 \left( \rho_m \delta_m + 4 \rho_r \Theta_{0} \right)\\
+\\
+k^2 \left( \phi + \psi \right) &=& -32 \pi G a^2~ \rho_r \Theta_{2}
+\end{array}
+\right.
+%\end{equation} \\
+\end{empheq} \\
+
+Keep in mind that to accurately model the evolution of neutrino perturbations to the percent level, a Boltzmann solver like \texttt{CAMB} or \texttt{CLASS} is necessary to account for the anisotropic stress and non-vanishing velocity divergence. They use the Boltzmann hierarchy displayed in Eq.~\ref{sys:hierarchy_boltz}. That isn't necessary to get a glimpse of what kind of behaviour to expect from neutrino perturbations. In what follows, I make use of the simplified Vlasov and Poisson Equations~\ref{eq:summary_euler} and~\ref{eq:summary_poisson} to have a coarse-grain apprehension of the impact of non-cold dark matter on the power spectrum.
+
+\clearpage

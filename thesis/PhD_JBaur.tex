@@ -1,0 +1,313 @@
+\pdfobjcompresslevel 0
+\documentclass[11pt, twoside, a4paper, openright]{report}
+
+\usepackage{Source/thesis}
+\usepackage{booktabs}
+\usepackage{lineno}
+\usepackage{graphicx}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor} %% To color in violet the text
+
+\usepackage[absolute]{textpos} % to place elements in the page
+\usepackage{multicol} % To write summary in two columns-mode
+\usepackage{calc} % To calculate textwidth
+
+
+
+\newcommand{\PhDTitleFR}{D{\'e}termination de la Masse des Neutrinos Cosmologiques avec les For{\^e}ts Lyman-alpha} %% Titre en Français
+\newcommand{\PhDkeywordsFR}{Neutrinos, Mati\`ere Noire, Lyman-alpha, Cosmologie, SDSS/BOSS} %% 3 à 6 mots clefs
+\newcommand{\PhDsumFR}{Les travaux pr\'esent\'es dans cette th\`ese contraignent la masse des neutrinos dans le contexte de 4 mod\`eles de mati\`ere noire en utilisant le spectre de puissance du flux transmit dans les for\^ets Lyman-alpha des quasars distants. Les neutrinos laissent une emprunte sur les grandes structures dans l'Univers \`a travers l'\'echelle \`a laquelle ils diffusent, qui se manifeste comme un d\'eficit de fluctuations de densit\'e de mati\`ere sur des distances inversement proportionnelles \`a leur masse. De l'ordre de quelques Mpc, ces \'echelles peuvent \^etre sond\'ees par les for\^ets Ly-$\alpha$ qui tracent la densit\'e d'Hydrog\`ene neutre atomique suivant la ligne de vis\'ee du quasar en arri\`ere-plan. J'utilise le spectre de puissance Ly-$\alpha$ construit gr\^ace \`a deux relev\'es de grandes structures:les $13,821$ spectres optiques de quasars basse-r\'esolution de la 9\`eme publication des donn\'ees du SDSS/BOSS \`a 12 redshifts de $\langle z \rangle = 2.2$ \`a $4.4$; ainsi que la centaine de spectres de quasar haute-r\'esolution du relev\'e XQ-100 du VLT à $\langle z \rangle = 3.20, 3.56$ et $3.93$. Ces deux relev\'es nous permettent de sonder les \'echelles de $k \geq 0.001~s/\mathrm{km}$ \`a $k \leq 0.02$ et $k \leq 0.07~ s/\mathrm{km}$ respectivement. \\
+
+Mod\'eliser le spectre de puissance Ly-$\alpha$ n\'ecessite r\'esoudre le r\'egime non-lin\'eaire de formation des structure et mod\'eliser le gaz inter-galactique dans les simulations cosmologiques hydrodynamiques destin\'ees \`a cet effet. Je contr\^ole pour plusieurs incertitudes syst\'ematiques li\'ees \`a ces simulations. Dans un premier temps, je quantifie la variance d'\'echantillonnage à l'aide de simulations tourn\'ees avec diff\'erentes conditions initiales. Dans un second temps, je teste la validit\'e d'une m\'ethode permettant de construire le spectre de puissance \`a partir de simulations plus petites et moins r\'esolues. Pour ce, j'ai tourn\'e une simulation \'evoluant $2 \times 2048^3$ particules de mati\`ere noire et de baryons dans un covolume de $(100~h^{-1}\mathrm{Mpc})^3$. Dans un troisi\`eme temps, j'ai quantifi\'e l'impact de la hi\'erarchie des masses sur le spectre de puissance. Ce travail a permit \`a notre groupe d'am\'eliorer les contraintes sur la masse des neutrinos de $\sum m_\nu < 0.15~\mathrm{eV}$ \'etablie pr\'ec\'edemment \`a $\sum m_\nu < 0.12~\mathrm{eV}$ \`a $95\%$ de vraisemblance. J'ai ensuite tourn\'e mes efforts vers l'impl\'ementation de neutrinos st\'eriles en tant que candidats mati\`ere noire non-froide dans les simulations. En particulier, j'ai produit les contraintes les plus fortes (au moment de la publication) sur la masse des neutrinos st\'eriles en tant que mati\`ere noire ti\`ede: $m_\nu \geq 25~\mathrm{keV}$ \`a $95\%$ de vraisemblance. J'ai \'etendu l'\'etude dans le contexte d'une matière noire mixte et contraint l'abondance relative de la composante ti\`ede par rapport \`a la froide. Enfin, j'ai compl\'et\'e ce travail en permettant une r\'esonance dans la production des neutrinos st\'eriles, r\'eduisant ainsi leur \'echelle caract\'eristique de diffusion et refroidissant la matière ti\`ede qu'ils incorporent. \`A ce but, j'ai initi\'e une collaboration avec une \'equipe de physiciens th\'eoriciens impliqu\'es dans les recherches astrophysiques de ces neutrinos st\'eriles dits produits par r\'esonance dans des objets riches en mati\`ere noire. Notre jeune collaboration a \'etabli les premi\`eres contraintes sur leur masse en utilisant le spectre de puissance Ly-$\alpha$.}
+
+\newcommand{\PhDTitleEN}{Determining the Mass of Cosmological Neutrinos using Lyman-alpha Forests} %% Title
+\newcommand{\PhDkeywordsEN}{Neutrinos, Dark Matter, Lyman-alpha, Cosmology, SDSS/BOSS} %% 3-6 Keywords
+\newcommand{\PhDsumEN}{In the work presented in this thesis, I use the power spectrum of the transmitted flux in the Lyman-alpha (Ly-$\alpha$) forest of distant quasars to constrain the mass of cosmological neutrinos in the context of four seperate projects. Neutrinos leave a signature imprint on large scale structures in the Universe through their free-streaming, which manifests as a deficit of matter density fluctuations on typical length scales that are inversely proportional to their rest mass. This typical free-streeming scale, of order a few Mpc, can be probed by Ly-$\alpha$ forests which are imprints of the neutral atomic Hydrogen density along the background quasar's line-of-sight. I use the Ly-$\alpha$ flux power spectrum from mainly two large scale structure surveys: the $13,821$ low-resolution quasar spectra from the ninth data release of SDSS (BOSS) in 12 redshift bins from $\langle z \rangle = 2.2$ to $4.4$; and the $100$ high-resolution quasar spectra from the XQ-100 survey (of the VLT's XShooter spectrograph) in 3 redshift bins, $\langle z \rangle = 3.20, 3.56$ and $3.93$. This enables us to probe scales from $k \geq 0.001~s/\mathrm{km}$ to $k \leq 0.02$ and $k \leq 0.07~ s/\mathrm{km}$ respectively. \\
+
+Modeling the flux power spectrum requires solving the non-linear regime of structure formation and the intergalactic gas in the cosmological hydrodynamics simulations that are used to that effect. I controlled for several of many systematic uncertainties related to the simulations. First, I ran simulations with different initial conditions to quantify the sampling variance. I then tested the accuracy of a splicing technique that we use to construct the flux power spectrum from lower size and lower resolution simulations. This required producing a complete run of a $(100~h^{-1}\mathrm{Mpc})^3$ comoving cube containing $2 \times 2048^3$ dark matter particles and baryons. Moreover, I quantified the impact of the neutrino mass ordering on the flux power spectrum. This enabled our working group to enhance the previously established constraints on the sum of neutrino masses from $\sum m_\nu < 0.15~\mathrm{eV}$ to the most stringent constraint to date $\sum m_\nu < 0.12~\mathrm{eV}$ with $95\%$ confidence. I then worked on implementing right-handed neutrinos in non-cold dark matter cosmological frameworks. A substancial amount of work has gone into applying plausible initial conditions that would accurately model the free-streaming effect of these types of particles. I put the most stringest constraints (at the time of publication) on the mass of non-resonantly produced sterile neutrinos as pure warm dark matter candidates, $m_\nu \geq 25~\mathrm{keV}$ at $95\%$ confidence. I extended this investigation into a mixed warm plus cold dark matter cosmology. Finally, I implement right-handed neutrinos produced in presence of a lepton asymmetry which boosts their production and lowers their free-streaming scale. I started a collaboration with a team of theoretical physicists involved in searching for astrophysical evidence for the existance of such resonantly-produced right-handed neutrinos in dark matter rich systems. Our new-born collaboration has enabled the first ever constraints on their mass using the  Ly-$\alpha$ forest power spectrum. 
+}
+
+
+
+\newcommand{\PhDname}{Julien Baur} % Civility, first name and name 
+\newcommand{\NNT}{2017SACLS219} %% Your NNT numer (the Library will attribute one...)
+\newcommand{\ecodocnum}{576} % Accrediation number
+\newcommand{\ecodoctitle}{Particules, Hadrons, \'Electrons, Noyaux, \\ Ing\'enierie, Imagerie, Cosmologie et Spatial (\textsc{Pheniics})} % Full name of the doctorale school
+\newcommand{\PhDspeciality}{Astroparticules \& Cosmologie} % Speciality 
+\newcommand{\PhDworkingplace}{Universit\'e Paris Sud} %PhD working place (must be one of these : Université Paris-Sud, Université de Versailles Saint Quentin, Université dEvry, AgroParisTech, CentraleSupelec, Ecole Normale Supérieure de Cachan, Ecole Polytechnique, ENSTA ParisTech,ENSAE ParisTech, HEC,Institut dOptique Graduate School,Telecom ParisTech or Telecom SudParis)
+\newcommand{\PhDLab}{CEA / DRF / Irfu / DPhP}
+\newcommand{\defenseplace}{L.A.L.} %Place of defense
+\newcommand{\defensedate}{28 Septembre 2017} % Date of defense
+\newcommand{\logoED}{\includegraphics[scale=1.2]{Logo/PHENIICS.png}} 
+\newcommand{\logoUNI}{\includegraphics[height=2cm]{Logo/UPsac.png}} 
+% Logo of doctoral school. Check the name of the correct file in the /logo folder.
+\newcommand{\logoEt}{\includegraphics[height=2cm]{Logo/UPS.png}} % Must be the logo corresponding to %PhD working place. Check the name of the correct file in the /logo folder.
+\newcommand{\vpos}{1} %% You can modify vertical position (leave cm as unit) in order to align horizontally both images
+
+
+
+%%% Jury member n1 (Président) %%%
+\newcommand{\jurynameA}{Herv\'e Dole}
+\newcommand{\jurygenderA}{M.} % M. or Mme. / Mrs.
+\newcommand{\juryadressA}{IAS / Observatoire de Paris}
+\newcommand{\jurygradeA}{Professeur des Universit\'es}
+\newcommand{\juryroleA}{Pr\'esident du jury} % 
+%%% Jury member n2 (Rapporteur) %%%
+\newcommand{\jurynameB}{Fran{\c c}oise Combes}
+\newcommand{\jurygenderB}{Mme.} % M. or Mme. / Mrs.
+\newcommand{\juryadressB}{LERMA / Observatoire de Paris}
+\newcommand{\jurygradeB}{Professeur}
+\newcommand{\juryroleB}{Rapporteur}
+%%% Jury member n3 (Rapporteur) %%%
+\newcommand{\jurynameC}{Alain Blanchard}
+\newcommand{\jurygenderC}{M.} % M. or Mme. / Mrs.
+\newcommand{\juryadressC}{IRAP / OMP}
+\newcommand{\jurygradeC}{Professeur}
+\newcommand{\juryroleC}{Rapporteur}
+%%% Jury member n4 (Examinateur) %%%
+\newcommand{\jurynameD}{S\'ebastien Peirani}
+\newcommand{\jurygenderD}{M.} % M. or Mme. / Mrs.
+\newcommand{\juryadressD}{Observatoire de la C{\^o}te d'Azur}
+\newcommand{\jurygradeD}{Charg\'e de Recherche}
+\newcommand{\juryroleD}{Examinateur}
+%%% Jury member n5 (Examinateur) %%%
+\newcommand{\jurynameE}{Nathalie Palanque-Delabrouille}
+\newcommand{\jurygenderE}{Mme.} % M. or Mme. / Mrs.
+\newcommand{\juryadressE}{CEA / DRF / Irfu / DPhP}
+\newcommand{\jurygradeE}{Directeur de Recherche}
+\newcommand{\juryroleE}{Directrice de th\`ese}
+
+
+
+
+\begin{document}
+
+\pagenumbering{gobble}
+\graphicspath{{Figures/}}
+
+\thispagestyle{empty}
+
+\input{Source/style-pagedegarde}
+
+
+\newpage
+\thispagestyle{empty}
+
+\newcounter{savepage}
+\pagenumbering{roman}
+\mbox{}
+\newpage
+
+
+
+\vspace*{12pc}
+\begin{flushright}
+{\Large\textit{\`a Thierry Guerillot},}
+\end{flushright}
+
+\tableofcontents
+\vskip 1cm
+
+\setcounter{savepage}{\arabic{page}}
+\pagenumbering{arabic}
+\input{Introduction}
+
+\setcounter{chapter}{0}
+\chapter{Neutrinos}
+{\color{purple}\titlerule[2.5pt]}
+\vspace{4pc}%
+\label{chap:neutrinos}
+%\tikz[remember picture,overlay] \node[opacity=0.2,inner sep=0pt] at (current page.center){\includegraphics[width=40cm, height=30cm]{sterile_header.png}};
+{\centering
+\includegraphics[width=\textwidth]{sterile_header.png}}
+\clearpage
+
+	\input{Neutrinos/Introduction}
+
+	\section{Neutrinos in the Standard Model of Particle Physics}
+	\label{sec:sm}
+	\input{Neutrinos/SM}
+
+	\section{Neutrino Masses: Beyond the Standard Model}
+	\label{sec:bsm}
+	\input{Neutrinos/BSM}
+
+	\section{The Minimal Extension with Sterile Neutrinos}
+	\label{sec:numsms}
+	\input{Neutrinos/NuMSM}
+
+
+\setcounter{chapter}{1}
+\chapter{The Smooth Expanding Universe}
+{\color{purple}\titlerule[2.5pt]}
+\vspace{4pc}%
+\label{chap:cosmology}
+\tikz[remember picture,overlay] \node[opacity=0.3,inner sep=0pt] at (current page.center){\includegraphics[width=20cm, height=20cm]{Cosmology/observable_universe.png}};
+%{\centering
+%\includegraphics[width=\textwidth]{Cosmology/observable_universe.png}}
+\clearpage
+
+	\input{Cosmology/Introduction}
+
+	\section{The Geometry of the Universe}
+	\label{sec:geometry}
+	\input{Cosmology/Geometry}
+	
+	\section{The Thermal History of the Hot Big Bang Model}
+	\label{sec:thermal}
+	\input{Cosmology/Thermal}
+
+	\section{The Energy Content of the Cosmological Fluid}
+	\label{sec:inventory}
+	\input{Cosmology/Inventory}
+
+
+
+\setcounter{chapter}{2}
+\chapter{A Structured Universe}
+{\color{purple}\titlerule[2.5pt]}
+\vspace{4pc}%
+\label{chap:structure}
+%\tikz[remember picture,overlay] \node[opacity=0.3,inner sep=0pt] at (current page.center){\includegraphics[height=0.8\paperwidth, angle=-90, keepaspectratio]{2dfgrs.png}};
+{\centering
+\includegraphics[width=\textwidth]{2dfgrs.png}}
+\clearpage
+
+	\input{Structure/Introduction}
+	
+	\section{Probing Inhomogeneities ~\&~ Anisotropies}
+	\label{sec:PS}
+	\input{Structure/PS}
+
+	\section{Linear Perturbations}
+	\label{sec:LP}
+	\input{Structure/LP}
+	
+	\section{Solving Neutrino Linear Perturbations}
+	\label{sec:CAMB}
+	\input{Structure/CAMB}
+
+
+\setcounter{chapter}{3}
+\chapter{The Lyman Alpha Forest}
+{\color{purple}\titlerule[2.5pt]}
+\vspace{4pc}%
+\label{chap:LyaForest}
+%\tikz[remember picture,overlay] \node[opacity=0.3,inner sep=0pt] at (current page.center){\includegraphics[height=20cm, angle=90]{LyaFeBOSS_bckgdwhite.png}};
+{\centering
+\includegraphics[width=\textwidth]{LyaFeBOSS_bckgdwhite.png}}
+\clearpage
+
+	\input{LyaForest/Introduction}
+
+	\section{Hydrogen Absorption in the Intergalactic Medium}
+	\label{sec:p1d}
+	\input{LyaForest/PLya}
+
+	\section{Measuring the Power Spectrum in Large Scale Structure Surveys}
+	\label{sec:pfdata}
+	\input{LyaForest/Samples}
+
+
+\setcounter{chapter}{4}
+\chapter{Constructing the Lyman Alpha Power Spectrum}
+{\color{purple}\titlerule[2.5pt]}
+\vspace{4pc}%
+\label{chap:Simulations}
+%\tikz[remember picture,overlay] \node[opacity=0.3,inner sep=0pt] at (current page.center){\includegraphics[height=\paperheight, angle=-90, keepaspectratio]{Visu/HDM_500eV_z22.png}};
+{\centering
+\includegraphics[width=\textwidth]{Visu/HDM_500eV_z22.png}}
+\clearpage
+
+	\input{Simulations/Introduction}
+
+	\section{Solving the Non-Linear Regime}
+	\label{sec:gadget}
+	\input{Simulations/Gadget}
+
+	\section{Constructing the Ly-$\alpha$ Forest}
+	\label{sec:extract}
+	\input{Simulations/Extract}
+
+	\section{Cosmology with the 1D Power Spectrum}
+	\label{sec:nuis}
+	\input{Simulations/Nuissance}
+
+\setcounter{chapter}{5}
+\chapter{Constraints on Neutrino and Non-Cold Dark Matter Particle Mass}
+{\color{purple}\titlerule[2.5pt]}
+\vspace{4pc}%
+\label{chap:results}
+%\tikz[remember picture,overlay] \node[opacity=0.3,inner sep=0pt] at (current page.center){\includegraphics[width=\paperheight, height=\paperwidth, angle=-90]{Visu/wdmcdm.png}};
+{\centering
+\includegraphics[width=\textwidth]{Visu/wdmcdm.png}}
+\clearpage
+
+	\input{Results/Introduction}
+
+	\section{Standard Cold Dark Matter Cosmologies}
+	\label{sec:lcdm}
+	\input{Results/CDM}
+
+	\section{Pure Dark Matter}
+	\label{sec:pdm}
+	\input{Results/HDM}
+
+	\section{Mixed Dark Matter}
+	\label{sec:mdm}
+	\input{Results/MDM}
+
+\setcounter{chapter}{6}
+\input{Conclusion}
+
+\appendix
+\input{Appendix/Units}
+\input{Appendix/Tensors}
+\input{Appendix/Differential}
+
+\selectlanguage{french}
+\input{Appendix/Resume_Francais/Introduction}
+\input{Appendix/Resume_Francais/Neutrinos}
+\input{Appendix/Resume_Francais/Simulations}
+\input{Appendix/Resume_Francais/Resultats}
+\selectlanguage{british}
+
+\pagenumbering{roman}
+\setcounter{page}{\thesavepage}
+\bibliographystyle{Source/chicago_thesis}
+\bibliography{Source/Thesis_biblio}
+\clearpage
+
+\input{List_Figures}
+
+\selectlanguage{french}
+\chapter*{Remerciements}
+{\color{purple}\titlerule[2.5pt]}
+\vspace{4pc}%
+\input{Acknowledgements}
+
+
+\clearpage
+
+\pagenumbering{gobble}
+\thispagestyle{empty}
+\newpage
+\thispagestyle{empty}
+
+\mbox{}
+
+\newpage
+\pagenumbering{gobble}
+\thispagestyle{empty}
+\selectlanguage{british}
+\input{Abstract_EN}
+\clearpage
+
+\mbox{}
+
+\newpage
+\pagenumbering{gobble}
+\thispagestyle{empty}
+\selectlanguage{french}
+\input{Abstract_FR}
+
+\end{document}

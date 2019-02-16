@@ -1,0 +1,33 @@
+\chapter{Tensors}
+\label{apx:tensors}
+{\color{purple}\titlerule[2.5pt]}
+\vspace{4pc}%
+
+\subsection{Vectors and Scalars}
+
+There are two ways to express the components of any vector $\vec{u} \in \mathbb{R}^n$ in a basis of unit vectors $\hat{e}_i, ~i \in [\![ 1, n ]\!]$.
+
+\subsubsection{Contra Variant Indices}
+
+The first way is by the vector addition property, which essentially decomposes vector $\vec{u}$ onto the basis vector:\\
+\begin{equation}
+\vec{u} = \sum_{i=1}^{n} u^i \hat{e}_i
+\end{equation} where each $u^i \in \mathbb{R}$ is a scalar quantity. If the basis vectors are lengthened, then the corresponding scalars are shortened in an inversely proportional manner. Because of this counter relationship, the set of $\left( u^i \right)_{i=1}^{n}$ are known as vector $\vec{u}$'s \emph{contra-variant} components on basis $\left( \hat{e}_i \right)_{i=1}^{n}$.
+
+\subsubsection{Co-Variant Indices}
+
+The other way is by the projection property, which expresses the fact that $\vec{u}$ is obtained by adding the projections of $\vec{u}$ along each basis vector:\\
+\begin{equation}
+\vec{u} = \sum_{i=1}^{n} \langle\vec{u} \vert \hat{e}_i \rangle \hat{e}_i = 
+\sum_{i=1}^{n} \pmb{g}(\vec{u}, \hat{e}_i)  \hat{e}_i = \sum_{i=1}^{n} u_i \hat{e}^i
+\end{equation} where the scalar product is expressed with respect to the metric $\pmb{g}$ on $\mathbb{R}^n$. The set of scalars $\left( u_i \right)_{i=1}^{n}$ 
+are known as the vector's \emph{co-variant} components in the dual basis $\left( \hat{e}^i \right)_{i=1}^{n}$ since lengthening the basis vectors lengthens the dot product and thus those components.\\
+
+Vectors are known as rank 1 tensors since one index is necessary to relate its coordinates. Co-variant and contra-variant indices may not be the same for a given vector as it pertains to basis in which it is expressed in. Scalars are rank 0 tensors since they only have a single component. \\
+
+\subsection{Rank $\geqslant 2$ Tensors}
+
+The same goes for higher rank tensors, in which the contra-variant components are inversely proportinal to the basis tensors while the co-variant components are proportional to the basis tensors' norm. For any tensor $\pmb{U}$, one can obtain the contra and co-variant components simply through the scalar product:\\
+\begin{equation}
+U^{i,j \hdots}_{m, n \hdots} = \sum_{\ell = 1}^{n} \sum_{m = 1}^{n} U^{i, j, k, \hdots}_{\ell, m, n, \hdots} g^{\ell}_{k}
+\end{equation}

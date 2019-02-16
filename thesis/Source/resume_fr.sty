@@ -1,0 +1,383 @@
+% % % % % % % % % % % % % % % % % % % % % % % % %
+%                                               %
+%                 PACKAGES                      %
+%                                               %
+% % % % % % % % % % % % % % % % % % % % % % % % %
+
+
+% pour écrire en anglais
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% gestion des images et des légendes
+\usepackage[pdftex]{graphicx}         % pour insérer des images
+\graphicspath{{figures/}}
+\usepackage{subcaption}
+\captionsetup{font=small}
+\captionsetup[sub]{font=footnotesize}
+
+\setcounter{topnumber}{2}               % maximum number of floats at top of page
+\setcounter{bottomnumber}{2}            % maximum number of floats at bottom of page
+\setcounter{totalnumber}{4}             % maximum number of floats on a page
+\renewcommand{\topfraction}{0.85}       % maximum fraction of page for floats at top
+\renewcommand{\bottomfraction}{0.85}    % maximum fraction of page for floats at bottom
+\renewcommand{\textfraction}{0.1}       % minimum fraction of page for text
+\renewcommand{\floatpagefraction}{0.7}  % minimum fraction of float page that should have floats
+% N.B.: floatpagefraction must be less than topfraction
+
+
+% bibliographie
+\usepackage{natbib}
+
+% pour éviter les veuves et orphelines
+\widowpenalty=10000
+\clubpenalty=10000
+
+
+% pour les données du pdf
+%\usepackage{hyperref}
+
+% pour écrire des maths
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{cases}
+\usepackage{cancel}
+\usepackage{dsfont}
+
+% pour les unités physique
+\usepackage[binary-units]{siunitx}
+\sisetup{locale = FR}
+\sisetup{range-phrase=\ensuremath{-}}
+\sisetup{range-units=single}
+\sisetup{separate-uncertainty}
+\sisetup{multi-part-units=single}
+\DeclareSIUnit\parsec{pc}
+\DeclareSIUnit\hubble{\ensuremath{h}}
+\DeclareSIUnit\sunmass{\ensuremath{\mathrm{M}_\odot}}
+\DeclareSIUnit\deg{deg}
+\DeclareSIUnit\mag{mag}
+
+% divers
+\usepackage{braket}
+\usepackage{bm}
+\usepackage{enumerate}
+\usepackage{lettrine}
+
+% tableaux
+\usepackage{tabularx}
+\usepackage{threeparttable}
+\usepackage{longtable}
+
+% add list of table/figure and bilbio in table of contents
+\usepackage[nottoc]{tocbibind}
+
+% lien
+\usepackage[unicode, naturalnames, bookmarks=true]{hyperref}
+\hypersetup{
+  unicode=true,           % non-Latin characters in Acrobat’s bookmarks
+  pdftoolbar=false,       % show Acrobat’s toolbar?
+  pdfmenubar=true,       % show Acrobat’s menu?
+  pdffitwindow=false,     % window fit to page when opened
+  pdfstartview={FitH},    % fits the width of the page to the window
+  pdftitle={One-Dimensional Power Spectrum and Neutrino Mass in the Spectra of BOSS},    % title
+  pdfauthor={Arnaud Borde},     % author
+  pdfsubject={Cosmology thesis},   % subject of the document
+  pdfcreator={Arnaud Borde},   % creator of the document
+  pdfproducer={Arnaud Borde}, % producer of the document
+  pdfkeywords={cosmology} {lyman-alpha} {neutrino} {power spectrum}, % list of keywords
+  pdfnewwindow=false,      % links in new window
+  colorlinks=true,       % false: boxed links; true: colored links
+  linkcolor=red,          % color of internal links (change box color with linkbordercolor)
+  citecolor=blue,        % color of links to bibliography
+  filecolor=magenta,      % color of file links
+  urlcolor=green           % color of external links
+}
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % %
+%                                               %
+%              LAYOUT ET EN-TETE                %
+%                                               %
+% % % % % % % % % % % % % % % % % % % % % % % % %
+
+
+% rédéfinition des marges et de l'interligne
+\usepackage[a4paper, twoside]{geometry}
+\geometry{inner = 2cm, outer = 1.5cm , top = 2cm, bottom = 2cm, headheight=15pt}
+\addtolength{\footskip}{1cm}
+\addtolength{\textheight}{-1cm}
+%\renewcommand{\baselinestretch}{1.1}
+
+
+% Modification du style des pages (numérotation en haut, rappel des titres...)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancypagestyle{plain}{%
+\fancyhf{} % clear all header and footer fields
+\fancyhead[RO,LE]{\bfseries \thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+
+
+\renewcommand{\sectionmark}[1]{\markboth{\thesection.\ #1}{}}
+
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection.\ #1}{}}
+
+\fancyhead[RO,LE]{\thepage}
+\fancyhead[LO]{\rightmark}
+\fancyhead[RE]{\leftmark}
+\fancyfoot[C]{}
+
+
+
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % %
+%                                               %
+%              TABLE DES MATIERES               %
+%                                               %
+% % % % % % % % % % % % % % % % % % % % % % % % %
+
+% profondeur de la numérotation
+\setcounter{secnumdepth}{3}
+
+% profondeur de la table des matières
+\setcounter{tocdepth}{2}
+
+% 0 = chapter
+% 1 = section
+% 2 = subsection
+% 3 = subsubsection
+% 4 = paragraph
+% 5 = subparagraph
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % %
+%                                               %
+%              PREMIERE PAGE                    %
+%                                               %
+% % % % % % % % % % % % % % % % % % % % % % % % %
+
+\makeatletter
+
+%definition des variables
+\def\defensedate#1{\gdef\@defensedate{#1}}
+\def\directeur#1{\gdef\@directeur{#1}}
+\def\president#1{\gdef\@president{#1}}
+\def\rapporteura#1{\gdef\@rapporteura{#1}}
+\def\rapporteurb#1{\gdef\@rapporteurb{#1}}
+\def\exama#1{\gdef\@exama{#1}}
+\def\examb#1{\gdef\@examb{#1}}
+\def\examc#1{\gdef\@examc{#1}}
+\def\examd#1{\gdef\@examd{#1}}
+\def\exame#1{\gdef\@exame{#1}}
+
+
+%Définition de la page de garde
+\def\titlep{
+    \selectlanguage{french}
+    \thispagestyle{empty}
+    \begin{center}
+        \includegraphics[height=2.5cm]{logo_psud.jpg}
+        \hfill
+        \includegraphics[height=2.5cm]{logo_dga.jpg}
+        \hfill
+        \includegraphics[height=2.5cm]{logo_irfu.jpg}
+    \end{center}
+
+\hrule
+\vspace{1em}
+
+    \begin{center}
+        \Large
+        \textsc{Université Paris Sud - XI}\\
+        \large
+        \'Ecole doctorale \og Particules, Noyaux et Cosmos \fg (ED 517)\\
+        \large
+        Institut de recherche sur les lois fondamentales de l'Univers, CEA Saclay
+    \end{center}
+
+\vfill
+
+    \begin{center}
+        \huge \textbf{Thèse de doctorat}\\
+        Résumé substantiel\\
+        \Large Spécialité physique\\
+    \end{center}
+
+\smallskip
+
+    \begin{center}
+        \large Soutenue le \@defensedate
+    \end{center}
+
+\smallskip
+
+    \begin{center}
+        par\\
+        \huge\@author
+    \end{center}
+
+\bigskip
+
+    \begin{center}
+        \framebox{\parbox{5.5in}{\begin{center}\uppercase\expandafter{\Huge\@title}\end{center}}}
+    \end{center}
+
+\vfill
+
+    \begin{center}
+        \begin{tabularx}{\textwidth}{XX}
+            \textbf{Directrice de thèse :}             & \@directeur      \\
+                                                       &                  \\
+            \textbf{Rapporteurs} :                     & \@rapporteura    \\
+                                                       & \@rapporteurb	  \\
+                                                       &                  \\
+            \underline{\textbf{Composition du jury}} : &                  \\
+            \textit{Président du jury} :               & \@president      \\
+            \textit{Examinateurs} :                    & \@exama          \\
+                                                       & \@examb          \\
+                                                       & \@examc          \\
+                                                       & \@examd          \\
+                                                       & \@exame          \\
+        \end{tabularx}
+    \end{center}
+\newpage
+}
+
+
+\makeatother
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % %
+%                                               %
+%              ENVIRONNEMENTS                   %
+%                                               %
+% % % % % % % % % % % % % % % % % % % % % % % % %
+
+% introduction des chapitres avec lettrine automatique
+\makeatletter
+
+\def\word@cap#1#2 {\lettrine[lines=2]{#1}{#2} }
+\newenvironment{intro}%
+{\vspace{1em}\begin{center}\hrule\vspace{1em}\begin{minipage}{0.75\linewidth}\small\expandafter\word@cap\romannumeral-`\.\noexpand}%
+{\end{minipage}\vspace{1em}\hrule\end{center}\vspace{1em}}
+
+\makeatother
+
+
+% redefinition de \[ et \] pour avoir des équations numerotées
+\renewcommand{\[}{\begin{equation}}
+\renewcommand{\]}{\end{equation}}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % %
+%                                               %
+%                COMMANDES                      %
+%                                               %
+% % % % % % % % % % % % % % % % % % % % % % % % %
+
+\newcommand{\cit}[3][0.33\textwidth]{\begin{flushright}\begin{minipage}{#1}\textit{``#2''}\newline---#3\end{minipage}\end{flushright}}
+
+\newcommand{\deriv}[3][]{\ensuremath{\frac{\mathrm{d}^{#1} #2}{\mathrm{d} #3^{#1}}}}
+\newcommand{\partderiv}[3][]{\ensuremath{\frac{\partial^{#1} #2}{\partial #3^{#1}}}}
+
+\newcommand{\mean}[1]{\ensuremath{\left< #1 \right>}}
+
+\newcommand{\dd}{\ensuremath{\mathrm{d}}}
+\newcommand{\DD}{\ensuremath{\mathrm{D}}}
+\newcommand{\da}{\ensuremath{\: \mathrm{d}a}}
+\newcommand{\dz}{\ensuremath{\: \mathrm{d}z}}
+\newcommand{\dt}{\ensuremath{\: \mathrm{d}t}}
+\newcommand{\dP}{\ensuremath{\: \mathrm{d}P}}
+\newcommand{\dtau}{\ensuremath{\: \mathrm{d}\tau}}
+\newcommand{\dchi}{\ensuremath{\: \mathrm{d}\chi}}
+\newcommand{\drrr}{\ensuremath{\: \mathrm{d}\mathbf{r}}}
+\newcommand{\dk}{\ensuremath{\: \mathrm{d}k}}
+\newcommand{\dx}{\ensuremath{\: \mathrm{d}x}}
+\newcommand{\dy}{\ensuremath{\: \mathrm{d}y}}
+\newcommand{\dV}{\ensuremath{\: \mathrm{d}V}}
+
+
+\newcommand{\vr}{\ensuremath{\mathbf{r}}}
+\newcommand{\vR}{\ensuremath{\mathbf{R}}}
+\newcommand{\vs}{\ensuremath{\mathbf{s}}}
+\newcommand{\vS}{\ensuremath{\mathbf{S}}}
+\newcommand{\vn}{\ensuremath{\mathbf{n}}}
+\newcommand{\vN}{\ensuremath{\mathbf{N}}}
+\newcommand{\vd}{\ensuremath{\mathbf{d}}}
+\newcommand{\vC}{\ensuremath{\mathbf{C}}}
+\newcommand{\vF}{\ensuremath{\mathbf{F}}}
+\newcommand{\vQ}{\ensuremath{\mathbf{Q}}}
+\newcommand{\vb}{\ensuremath{\mathbf{b}}}
+\newcommand{\vv}{\ensuremath{\mathbf{v}}}
+\newcommand{\vg}{\ensuremath{\mathbf{g}}}
+\newcommand{\vx}{\ensuremath{\mathbf{x}}}
+\newcommand{\vX}{\ensuremath{\mathbf{X}}}
+\newcommand{\vY}{\ensuremath{\mathbf{Y}}}
+\newcommand{\vk}{\ensuremath{\mathbf{k}}}
+
+\newcommand{\element}[2]{\ensuremath{^{#1} \mathrm{#2}}}
+
+\newcommand{\br}{\ensuremath{\mathbf{r}}}
+\newcommand{\bp}{\ensuremath{\mathbf{p}}}
+\newcommand{\bA}{\ensuremath{\mathbf{A}}}
+\newcommand{\bE}{\ensuremath{\mathbf{E}}}
+\newcommand{\bB}{\ensuremath{\mathbf{B}}}
+\newcommand{\bK}{\ensuremath{\mathbf{K}}}
+\newcommand{\bL}{\ensuremath{\mathbf{L}}}
+\newcommand{\bF}{\ensuremath{\mathbf{F}}}
+\newcommand{\bS}{\ensuremath{\mathbf{S}}}
+\newcommand{\bv}{\ensuremath{\mathbf{v}}}
+\newcommand{\bk}{\ensuremath{\mathbf{k}}}
+\newcommand{\bn}{\ensuremath{\mathbf{n}}}
+\renewcommand{\bp}{\ensuremath{\mathbf{p}}}
+
+\newcommand{\rmG}{\ensuremath{\mathrm{G}}}
+
+\newcommand{\bbR}{\ensuremath{\mathds{R}}}
+\newcommand{\bbid}{\ensuremath{\mathds{1}}}
+
+\newcommand{\cM}{\ensuremath{\mathcal{M}}}
+\newcommand{\cS}{\ensuremath{\mathcal{S}}}
+\newcommand{\cF}{\ensuremath{\mathcal{F}}}
+\newcommand{\cC}{\ensuremath{\mathcal{C}}}
+\newcommand{\cU}{\ensuremath{\mathcal{U}}}
+\newcommand{\cT}{\ensuremath{\mathcal{T}}}
+\newcommand{\cO}{\ensuremath{\mathcal{O}}}
+\newcommand{\cA}{\ensuremath{\mathcal{A}}}
+\newcommand{\cR}{\ensuremath{\mathcal{R}}}
+\newcommand{\cD}{\ensuremath{\mathcal{D}}}
+\newcommand{\cL}{\ensuremath{\mathcal{L}}}
+\newcommand{\cJ}{\ensuremath{\mathcal{J}}}
+
+\newcommand{\expb}[1]{\ensuremath{\exp \left( #1 \right)}}
+\newcommand{\inverse}[1]{\ensuremath{\frac{1}{#1}}}
+
+\newcommand{\ihat}{\ensuremath{{\hat{\imath}}}}
+\newcommand{\jhat}{\ensuremath{{\hat{\jmath}}}}
+
+\newcommand{\tensortype}[2]{\ensuremath{\genfrac{(}{)}{0pt}{}{#1}{#2}}}
+
+
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\sign}{sign}
+
+\DeclareMathOperator{\dive}{div}
+\DeclareMathOperator{\rot}{\overrightarrow{\mathrm{rot}}}
+\DeclareMathOperator{\grad}{\overrightarrow{\mathrm{grad}}}
+
+\newcommand{\ion}[2]{\textup{#1\,\textsc{\lowercase{#2}}}}

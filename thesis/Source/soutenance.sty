@@ -1,0 +1,164 @@
+%pour écrire en anglais
+\usepackage[british]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% images et figures
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+%\usepackage{movie15}
+\usepackage{media9}
+
+% écrire des maths
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+% écrire des unités
+\usepackage[binary-units]{siunitx}
+\sisetup{range-phrase=\ensuremath{-}}
+\sisetup{range-units=single}
+\sisetup{separate-uncertainty}
+\sisetup{multi-part-units=single}
+\DeclareSIUnit\parsec{pc}
+\DeclareSIUnit\hubble{\ensuremath{h}}
+\DeclareSIUnit\sunmass{\ensuremath{\mathrm{M}_\odot}}
+\DeclareSIUnit\deg{deg}
+\DeclareSIUnit\mag{mag}
+
+% commandes
+\newcommand{\deriv}[3][]{\ensuremath{\frac{\mathrm{d}^{#1} #2}{\mathrm{d} #3^{#1}}}}
+\newcommand{\partderiv}[3][]{\ensuremath{\frac{\partial^{#1} #2}{\partial #3^{#1}}}}
+
+\newcommand{\mean}[1]{\ensuremath{\left< #1 \right>}}
+
+\newcommand{\dd}{\ensuremath{\mathrm{d}}}
+\newcommand{\DD}{\ensuremath{\mathrm{D}}}
+\newcommand{\da}{\ensuremath{\: \mathrm{d}a}}
+\newcommand{\dz}{\ensuremath{\: \mathrm{d}z}}
+\newcommand{\dt}{\ensuremath{\: \mathrm{d}t}}
+\newcommand{\dP}{\ensuremath{\: \mathrm{d}P}}
+\newcommand{\dtau}{\ensuremath{\: \mathrm{d}\tau}}
+\newcommand{\dchi}{\ensuremath{\: \mathrm{d}\chi}}
+\newcommand{\drrr}{\ensuremath{\: \mathrm{d}\mathbf{r}}}
+\newcommand{\dk}{\ensuremath{\: \mathrm{d}k}}
+\newcommand{\dx}{\ensuremath{\: \mathrm{d}x}}
+\newcommand{\dy}{\ensuremath{\: \mathrm{d}y}}
+\newcommand{\dV}{\ensuremath{\: \mathrm{d}V}}
+
+
+\newcommand{\vr}{\ensuremath{\mathbf{r}}}
+\newcommand{\vR}{\ensuremath{\mathbf{R}}}
+\newcommand{\vs}{\ensuremath{\mathbf{s}}}
+\newcommand{\vS}{\ensuremath{\mathbf{S}}}
+\newcommand{\vn}{\ensuremath{\mathbf{n}}}
+\newcommand{\vN}{\ensuremath{\mathbf{N}}}
+\newcommand{\vd}{\ensuremath{\mathbf{d}}}
+\newcommand{\vC}{\ensuremath{\mathbf{C}}}
+\newcommand{\vF}{\ensuremath{\mathbf{F}}}
+\newcommand{\vQ}{\ensuremath{\mathbf{Q}}}
+\newcommand{\vb}{\ensuremath{\mathbf{b}}}
+\newcommand{\vv}{\ensuremath{\mathbf{v}}}
+\newcommand{\vg}{\ensuremath{\mathbf{g}}}
+\newcommand{\vx}{\ensuremath{\mathbf{x}}}
+\newcommand{\vX}{\ensuremath{\mathbf{X}}}
+\newcommand{\vY}{\ensuremath{\mathbf{Y}}}
+\newcommand{\vk}{\ensuremath{\mathbf{k}}}
+
+\newcommand{\element}[2]{\ensuremath{^{#1} \mathrm{#2}}}
+
+\newcommand{\br}{\ensuremath{\mathbf{r}}}
+\newcommand{\bp}{\ensuremath{\mathbf{p}}}
+\newcommand{\bA}{\ensuremath{\mathbf{A}}}
+\newcommand{\bE}{\ensuremath{\mathbf{E}}}
+\newcommand{\bB}{\ensuremath{\mathbf{B}}}
+\newcommand{\bK}{\ensuremath{\mathbf{K}}}
+\newcommand{\bL}{\ensuremath{\mathbf{L}}}
+\newcommand{\bF}{\ensuremath{\mathbf{F}}}
+\newcommand{\bS}{\ensuremath{\mathbf{S}}}
+\newcommand{\bv}{\ensuremath{\mathbf{v}}}
+\newcommand{\bk}{\ensuremath{\mathbf{k}}}
+\newcommand{\bn}{\ensuremath{\mathbf{n}}}
+\renewcommand{\bp}{\ensuremath{\mathbf{p}}}
+
+\newcommand{\rmG}{\ensuremath{\mathrm{G}}}
+
+\newcommand{\bbR}{\ensuremath{\mathds{R}}}
+\newcommand{\bbid}{\ensuremath{\mathds{1}}}
+
+\newcommand{\cM}{\ensuremath{\mathcal{M}}}
+\newcommand{\cS}{\ensuremath{\mathcal{S}}}
+\newcommand{\cF}{\ensuremath{\mathcal{F}}}
+\newcommand{\cC}{\ensuremath{\mathcal{C}}}
+\newcommand{\cU}{\ensuremath{\mathcal{U}}}
+\newcommand{\cT}{\ensuremath{\mathcal{T}}}
+\newcommand{\cO}{\ensuremath{\mathcal{O}}}
+\newcommand{\cA}{\ensuremath{\mathcal{A}}}
+\newcommand{\cR}{\ensuremath{\mathcal{R}}}
+\newcommand{\cD}{\ensuremath{\mathcal{D}}}
+\newcommand{\cL}{\ensuremath{\mathcal{L}}}
+\newcommand{\cJ}{\ensuremath{\mathcal{J}}}
+
+\newcommand{\expb}[1]{\ensuremath{\exp \left( #1 \right)}}
+\newcommand{\inverse}[1]{\ensuremath{\frac{1}{#1}}}
+
+\newcommand{\ihat}{\ensuremath{{\hat{\imath}}}}
+\newcommand{\jhat}{\ensuremath{{\hat{\jmath}}}}
+
+\newcommand{\tensortype}[2]{\ensuremath{\genfrac{(}{)}{0pt}{}{#1}{#2}}}
+
+
+\DeclareMathOperator{\sinc}{sinc}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\sign}{sign}
+
+\DeclareMathOperator{\dive}{div}
+\DeclareMathOperator{\rot}{\overrightarrow{\mathrm{rot}}}
+\DeclareMathOperator{\grad}{\overrightarrow{\mathrm{grad}}}
+
+\newcommand{\ion}[2]{\textup{#1\,\textsc{\lowercase{#2}}}}
+
+
+% beamer
+\usetheme{CambridgeUS}
+\usecolortheme{beetle}
+\setbeamercolor{structure}{fg=gray}
+\definecolor{bottomcolour}{rgb}{0.256,0.24,0.3}
+\definecolor{middlecolour}{rgb}{0.064,0.064,0.128}
+\setbeamercolor{normal text}{bg=black, fg=white}
+\setbeamertemplate{background canvas}[vertical shading]
+[bottom=bottomcolour, middle=middlecolour, top=black]
+\setbeamercovered{highly dynamic}
+\setbeamertemplate{headline}{}
+
+
+\definecolor{verylightgray}{rgb}{0.7,0.7,0.7}
+\setbeamercolor{section in toc}{bg=middlecolour, fg=white}
+\setbeamercolor{subsection in toc}{fg=verylightgray}
+
+\setbeamercolor{alerted text}{fg=yellow}
+
+\beamertemplatenavigationsymbolsempty
+
+\AtBeginNote{
+  \let\enumerate\itemize
+  \let\endenumerate\enditemize
+  \huge
+}
+
+\AtBeginSection[]{
+  \begin{frame}{Outline}
+  \tableofcontents[currentsection, sectionstyle=show/hide, subsectionstyle=show/show/hide]
+  \note{ }
+  \end{frame}
+}
+
+\usefonttheme{structuresmallcapsserif}
+
+\newcounter{finalframe}
